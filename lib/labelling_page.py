@@ -74,6 +74,10 @@ class LabellingPage(PageGUI):
         self.env.root.unbind('<Key>')
         self.env.root.unbind('<Left>')
         self.env.root.unbind('<Right>')
+        for cl in self.env.class_labels_list: #Re-enabling modifications to entries
+            cl.label['state'] = tk.NORMAL
+        for il in self.env.img_list:
+            il.entry['state'] = tk.NORMAL
         self.env.main_page.show()
     
     def set_class_label(self, cl): #Assigns the user-selected class label to the ImageLabel object of this LabellingPage object

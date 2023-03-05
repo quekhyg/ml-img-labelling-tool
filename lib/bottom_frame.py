@@ -49,6 +49,11 @@ class BottomFrame:
             lp.i = i
             lp.create_counter_label(self.env.root)
         
+        for cl in self.env.class_labels_list: #Disabling modifications to entries
+            cl.label['state'] = tk.DISABLED
+        for il in self.env.img_list:
+            il.entry['state'] = tk.DISABLED
+        
         if self.env.selected_lps:
             self.env.main_page.hide()
             self.env.selected_lps[0].show() #Starting the user labelling process with the first selected image
